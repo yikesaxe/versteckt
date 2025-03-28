@@ -1,125 +1,105 @@
-Versteckt
+<p align="center">
+  <img width="120" src="https://em-content.zobj.net/thumbs/120/apple/354/locked-with-key_1f510.png" alt="Versteckt Logo">
+</p>
 
-Your Personal Privacy Shield for AI Interactions
+<h1 align="center">Versteckt</h1>
 
-⸻
+<p align="center">
+  <em>Real-Time Privacy Protection for Your AI Interactions</em>
+</p>
 
-📖 Overview
+<p align="center">
+  <a href="#about">About</a> •
+  <a href="#purpose-and-vision">Vision</a> •
+  <a href="#key-features">Features</a> •
+  <a href="#market-research">Market Research</a> •
+  <a href="#system-design">System Design</a> •
+  <a href="#how-it-works">How it Works</a> •
+  <a href="#setup">Setup</a> •
+  <a href="#future-roadmap">Roadmap</a>
+</p>
 
-Versteckt (German for “hidden”) is an innovative privacy-preserving solution designed to protect sensitive user information from being unintentionally shared with external AI services like ChatGPT, Claude, Gemini, Siri, and others. By seamlessly intercepting user inputs across browsers and native apps, Versteckt masks sensitive data in real-time, ensuring your private information never reaches external AI models or databases.
+---
 
-⸻
+## 🎯 About
 
-🚀 Purpose
+**Versteckt** (German: "hidden") is a privacy-centric tool designed to protect sensitive information from being unintentionally shared with third-party AI tools (such as ChatGPT, Claude, Gemini, Siri, and others). It intercepts and anonymizes private data in real-time, ensuring that your conversations remain safe, secure, and confidential.
 
-With the rise of AI tools integrated into daily workflows, there’s an increased risk of unintentionally sharing sensitive personal or professional data with third-party models. Versteckt addresses this risk by intelligently detecting and masking sensitive information, providing peace of mind to privacy-conscious users, professionals, and enterprises alike.
+---
 
-⸻
+## 🌟 Purpose and Vision
 
-🔍 Why Versteckt?
-	•	Protect Personal Information: Keep names, addresses, financial data, and other sensitive details private.
-	•	Seamless Integration: Works system-wide on macOS, covering all applications and browsers without significant workflow interruption.
-	•	Transparency: Users receive clear indications of what data has been masked, maintaining trust and control.
+As powerful AI tools become embedded in everyday workflows, users inadvertently share highly sensitive data—personal names, financial information, addresses, medical details—often without realizing it. **Versteckt** solves this critical issue by automatically anonymizing sensitive details before they ever reach external servers.
 
-⸻
+Our vision is to create a seamless, trustworthy privacy shield that empowers users to leverage AI tools without compromising their data security.
 
-🎯 Market Need
+---
 
-The global data privacy market is projected to reach approximately $85 billion by 2030. Privacy regulations like GDPR, HIPAA, and CCPA are increasingly stringent, creating strong demand for tools that protect sensitive data, especially as more users and businesses integrate AI into their workflows.
+## 🚀 Key Features
 
-Target Audiences:
-	•	Privacy-conscious Professionals: Legal, finance, healthcare, tech.
-	•	Small and Medium Businesses: Without resources to implement complex internal data-protection systems.
-	•	Individual Users: Who frequently use AI assistants but are concerned about privacy.
+- **Real-time Anonymization:** Instantly detects and masks sensitive information before submission.
+- **Intelligent Masking:** Uses NLP and Named Entity Recognition (NER) to accurately identify sensitive data.
+- **System-wide Coverage:** Works across browsers (Chrome, Safari, Firefox) and native macOS apps (Slack, Notion, etc.).
+- **Data Control & Transparency:** Clearly indicates what information is being anonymized and why.
+- **Ease of Use:** Minimalist menubar interface—lightweight, intuitive, and always accessible.
 
-⸻
+---
 
-💡 System Design
+## 📈 Market Research
 
-Versteckt operates through three primary components:
+### 📌 Problem Space
+- Increasing public and regulatory concerns over privacy and data leaks (GDPR, CCPA).
+- Users frequently disclose sensitive data to third-party AI models without realizing the risk.
+- Integration of AI tools in daily workflows amplifies the risk of unintended data exposure.
 
-1. Input Interception
-	•	Uses macOS’s Core Graphics Event Taps API.
-	•	Globally captures and analyzes keystrokes and text inputs in real-time across all applications.
+### 📌 Market Potential
+- The Data Privacy Market is currently valued at **~$23 billion** and is projected to reach **~$85 billion by 2030** ([Grand View Research](https://www.grandviewresearch.com)).
+- High demand sectors include healthcare, finance, legal, education, and enterprises requiring compliance solutions.
 
-2. Sensitive Data Detection & Masking
-	•	Leverages powerful AI-driven Named Entity Recognition (NER) using spaCy and Microsoft Presidio.
-	•	Detects names, places, numbers, and more, replacing them with carefully selected pseudonyms or placeholders.
-	•	Maintains a reversible local mapping to restore original text upon receiving AI responses.
+### 📌 Target Audience
+- Privacy-conscious individuals and professionals (e.g., doctors, lawyers, financial analysts).
+- Small-to-medium enterprises (SMEs) with limited internal data anonymization infrastructure.
+- Organizations needing easy-to-deploy, effective privacy solutions.
 
-3. User Interface
-	•	Minimalistic menubar app built using rumps.
-	•	Provides notifications and visual feedback on masking activity.
-	•	Offers transparency through user-accessible logs of data masking actions.
+---
 
-⸻
+## 🔍 System Design
 
-🛠 Technical Stack
-	•	Language: Python
-	•	Input Capture: PyObjC, pynput, Core Graphics Event Taps
-	•	PII Detection: spaCy, Microsoft Presidio
-	•	UI/UX: rumps (menubar app)
-
-⸻
-
-📈 Market Research
-	•	Privacy-conscious consumers and regulated industries (finance, healthcare, legal) present immediate market entry points.
-	•	Rapid growth driven by regulatory compliance and data-privacy awareness.
-	•	Limited direct competitors; most solutions focus broadly on VPNs or Data Loss Prevention rather than targeted privacy during AI interactions.
-
-⸻
-
-✅ Versteckt Solution
-
-Versteckt fills the market gap by providing:
-	•	Real-time system-wide data masking.
-	•	Simple yet powerful integration requiring minimal user interaction.
-	•	High reliability with minimal latency, ensuring smooth user experience.
-
-⸻
-
-🌟 Future Roadmap
-	•	Expansion to Windows and Linux platforms.
-	•	Integration plugins for popular productivity tools (Slack, Notion, Teams).
-	•	Enhanced AI-powered contextual masking accuracy.
-	•	Enterprise-grade dashboard for compliance reporting and oversight.
-
-⸻
-
-🚦 Getting Started
-
-Prerequisites:
-	•	macOS
-	•	Python 3.8 or higher
-
-Installation:
-
-pip install pynput spacy rumps
-python -m spacy download en_core_web_sm
-
-Usage:
-	•	Grant accessibility permissions on macOS.
-	•	Run python privacy_filter_mvp.py
-
-⸻
-
-🤝 Contributions
-
-Contributions, suggestions, and feedback are welcome! Open an issue or a pull request to get involved.
-
-⸻
-
-📄 License
-
-Versteckt is licensed under the MIT License. See LICENSE for details.
-
-⸻
-
-🌐 Connect
-	•	Website: [Your future website URL]
-	•	GitHub: [Your future GitHub URL]
-	•	Email: [Your contact email]
-
-⸻
-
-Protect your data privacy seamlessly. Choose Versteckt.
+```plaintext
++-----------------------------------------------+
+|              User Input (typed text)          |
++-------------------------+---------------------+
+                          |
+                          v
++-----------------------------------------------+
+|               macOS Keyboard Event Tap        |
+|        (captures input in real-time)          |
++-------------------------+---------------------+
+                          |
+                          v
++-----------------------------------------------+
+|                Sensitive Data Detection       |
+|      (NER, regex-based rules for PII)         |
++-------------------------+---------------------+
+                          |
+                          v
++-----------------------------------------------+
+|              Anonymization & Masking          |
+|   (replaces sensitive data with pseudonyms)   |
++-------------------------+---------------------+
+                          |
+                          v
++-----------------------------------------------+
+|        External AI Model (e.g. ChatGPT)       |
++-------------------------+---------------------+
+                          |
+                          v
++-----------------------------------------------+
+|           AI Response (masked names)          |
++-------------------------+---------------------+
+                          |
+                          v
++-----------------------------------------------+
+|          Reverse Mapping to Original Data     |
+|     (securely restores original data locally) |
++-----------------------------------------------+
