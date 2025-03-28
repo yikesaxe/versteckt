@@ -63,7 +63,7 @@ Our vision is to create a seamless, trustworthy privacy shield that empowers use
 
 ---
 
-## 🔍 System Design
+## 🔍 How it Works
 
 ```plaintext
 +-----------------------------------------------+
@@ -103,3 +103,63 @@ Our vision is to create a seamless, trustworthy privacy shield that empowers use
 |          Reverse Mapping to Original Data     |
 |     (securely restores original data locally) |
 +-----------------------------------------------+
+```
+
+## 💻 Setup
+
+### ✅ Dependencies
+
+- Python 3.8+
+- `pynput`
+- `spaCy`
+- `rumps`
+
+### 📌 Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/yikesaxe/versteckt.git
+cd versteckt
+
+pip install pynput spacy rumps
+python -m spacy download en_core_web_sm
+```
+### 🚧 Permissions
+Grant Accessibility permissions via:
+
+	System Preferences → Security & Privacy → Privacy → Accessibility
+### 🚀 Running the Application
+```bash
+python privacy_filter_mvp.py
+```
+## 🛣️ Future Roadmap
+
+- [ ] Expand detection to cover additional PII categories (emails, locations, financial details).
+- [ ] Implement persistent pseudonym mappings for consistent anonymization.
+- [ ] Develop browser extensions for seamless web interactions.
+- [ ] Create an enterprise compliance dashboard.
+- [ ] Support cross-platform implementations (Windows, Linux).
+
+
+## 🤝 Contributing
+
+Contributions are always welcome! To get started:
+
+1. **Fork** this repository.
+2. **Create** your feature branch:
+   ```bash
+   git checkout -b feature/my-feature
+3. **Commi**t your changes:
+git commit -m "Add my feature"
+4. **Push** your branch:
+git push origin feature/my-feature
+5. **Open** a Pull Request describing your changes clearly.
+
+## 📄 License
+
+Distributed under the MIT License. See LICENSE for details.
+
+<p align="left">
+Made with ❤️ & privacy-first thinking by Axel L.
+</p>
