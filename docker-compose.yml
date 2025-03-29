@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  analyzer:
+    image: mcr.microsoft.com/presidio-analyzer
+    ports:
+      - "3000:3000"
+    environment:
+      - CORS_ALLOWED_ORIGINS=*
+      - FLASK_ENV=development
+
+  anonymizer:
+    image: mcr.microsoft.com/presidio-anonymizer
+    ports:
+      - "3001:3001"
+    environment:
+      - CORS_ALLOWED_ORIGINS=*
+      - FLASK_ENV=development
