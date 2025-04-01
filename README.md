@@ -72,8 +72,8 @@ Our vision is to create a seamless, trustworthy privacy shield that empowers use
                           |
                           v
 +-----------------------------------------------+
-|               macOS Keyboard Event Tap        |
-|        (captures input in real-time)          |
+|         Content Script (Chrome Extension)     |
+|   (Captures input in real-time on key press)  |
 +-------------------------+---------------------+
                           |
                           v
@@ -90,76 +90,81 @@ Our vision is to create a seamless, trustworthy privacy shield that empowers use
                           |
                           v
 +-----------------------------------------------+
-|        External AI Model (e.g. ChatGPT)       |
-+-------------------------+---------------------+
-                          |
-                          v
-+-----------------------------------------------+
 |           AI Response (masked names)          |
 +-------------------------+---------------------+
-                          |
-                          v
-+-----------------------------------------------+
-|          Reverse Mapping to Original Data     |
-|     (securely restores original data locally) |
-+-----------------------------------------------+
 ```
 
 ## 💻 Setup
 
-### ✅ Dependencies
+### ⚙️ Tech Stack
 
-- Python 3.8+
-- `pynput`
-- `spaCy`
-- `rumps`
+- Chrome Extension (Manifest v3)
+- JavaScript (Vanilla)
+- Microsoft Presidio (running locally in Docker)
+- NER & Regex-based PII Detection
 
-### 📌 Installation
+### 🔥 How it Works
 
-Clone the repository and install dependencies:
+1.	Real-time Monitoring — Versteckt listens to all input events on text areas, inputs, and contentEditable fields.
+2.	Sensitive Data Detection — When you type a space or submit text, it sends your input to a local Presidio API (localhost:3000/analyze).
+3.	Anonymization — Detected PII is replaced with realistic fake data (e.g., fake names, emails, phone numbers) and stored in a local mapping.
+4.	Consistent Replacement — Once replaced, the same fake data is used throughout the entire chat to maintain coherence.
+
+### ⚡ Quick Start (Local Installation)
+
+1. Clone the Repository
 
 ```bash
 git clone https://github.com/yikesaxe/versteckt.git
-cd versteckt
-
-pip install pynput spacy rumps
-python -m spacy download en_core_web_sm
+cd versteckt-extension
 ```
-### 🚧 Permissions
-Grant Accessibility permissions via:
 
-	System Preferences → Security & Privacy → Privacy → Accessibility
-### 🚀 Running the Application
+2. Run Microsoft Presidio (Docker)
+
+Make sure Docker Desktop is installed and running.
 ```bash
-python privacy_filter_mvp.py
+docker pull mcr.microsoft.com/presidio-analyzer
+docker run -d -p 3000:3000 \
+  -e "FLASK_APP=presidio-analyzer" \
+  -e "FLASK_ENV=development" \
+  -e "CORS_ALLOWED_ORIGINS=*" \
+  mcr.microsoft.com/presidio-analyzer
 ```
+
+3. Load the Chrome Extension
+	1.	Open chrome://extensions
+	2.	Enable Developer Mode
+	3.	Click Load Unpacked
+	4.	Select the versteckt/ folder
+
+### 🧩 Usage
+
+Once installed:
+	•	Go to ChatGPT, Claude, or any chat tool.
+	•	Start typing sensitive data (e.g. name, email, SSN).
+	•	As soon as you type a space, Versteckt will anonymize that entity with fake data.
+	•	You can verify the replacements in the Console Logs (F12).
+
 ## 🛣️ Future Roadmap
 
-- [ ] Expand detection to cover additional PII categories (emails, locations, financial details).
-- [ ] Implement persistent pseudonym mappings for consistent anonymization.
-- [ ] Develop browser extensions for seamless web interactions.
-- [ ] Create an enterprise compliance dashboard.
-- [ ] Support cross-platform implementations (Windows, Linux).
+	•	Add detection and anonymization for additional entities (Dates, National IDs, IP addresses).
+	•	Build a Reverse Mapping toggle to automatically revert fake data in AI responses (optional).
+	•	Firefox and Safari extension versions.
+	•	Create a macOS native app with system-wide input anonymization (key tap level).
+	•	Enterprise features — bulk anonymization & compliance logs.
+	•	UI Dashboard to visualize sanitized data & mappings.
 
 
 ## 🤝 Contributing
 
-Contributions are always welcome! To get started:
-
-1. **Fork** this repository.
-2. **Create** your feature branch:
-   ```bash
-   git checkout -b feature/my-feature
-3. **Commi**t your changes:
-git commit -m "Add my feature"
-4. **Push** your branch:
-git push origin feature/my-feature
-5. **Open** a Pull Request describing your changes clearly.
+Contributions are welcome!
+Feel free to submit PRs, issues, or new ideas.
 
 ## 📄 License
 
 Distributed under the MIT License. See LICENSE for details.
 
 <p align="left">
-Made with ❤️ & privacy-first thinking by Axel L.
+Built with ❤️ by Axel L.
+Privacy is not a feature, it’s a right.
 </p>
